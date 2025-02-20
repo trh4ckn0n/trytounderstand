@@ -74,4 +74,4 @@ def steg_reveal():
     return render_template('index.html', hidden_message=hidden_message)
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=False, host="0.0.0.0")
