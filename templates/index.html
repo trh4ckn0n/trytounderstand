@@ -5,28 +5,100 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cryptography and Steganography</title>
     <style>
+        /* Global Styles */
         body {
             background-color: #1a1a1a;
             color: #00ff00;
-            font-family: Arial, sans-serif;
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
         }
+        h1, h2, h3, h4 {
+            color: #00ff00;
+        }
+
+        /* Container */
         .container {
             width: 80%;
-            margin: 0 auto;
+            margin: 50px auto;
             text-align: center;
+            padding: 20px;
+            background-color: #222;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 255, 0, 0.5);
         }
-        input, button {
-            margin: 10px 0;
-            padding: 10px;
+
+        /* Form Elements */
+        input, textarea, button {
+            margin: 15px 0;
+            padding: 15px;
             border: 2px solid #00ff00;
             background-color: #333;
             color: #00ff00;
+            font-size: 1rem;
+            border-radius: 5px;
+            transition: all 0.3s ease;
         }
+
         input[type="file"] {
             margin: 20px 0;
         }
+
+        input:focus, textarea:focus, button:hover {
+            background-color: #444;
+            border-color: #00cc00;
+            transform: scale(1.05);
+        }
+
+        textarea {
+            width: 80%;
+            resize: none;
+        }
+
+        button {
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+        button:active {
+            background-color: #00cc00;
+        }
+
+        /* Output Section */
         .output {
             margin-top: 20px;
+            padding: 10px;
+            background-color: #333;
+            border: 2px solid #00ff00;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+        }
+
+        .output img {
+            border: 2px solid #00ff00;
+            margin-top: 10px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+        }
+
+        /* Flexbox for Better Layout */
+        .output p, .output h3, .output h4 {
+            font-size: 1.2rem;
+        }
+
+        /* Add some spacing between sections */
+        section {
+            margin-bottom: 40px;
+        }
+
+        /* Styling for individual sections */
+        .section-header {
+            font-size: 2rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            color: #00ff00;
         }
     </style>
 </head>
@@ -34,61 +106,69 @@
     <div class="container">
         <h1>Cryptography and Steganography</h1>
 
-        <h2>Encrypt Message</h2>
-        <form method="POST" action="/encrypt">
-            <textarea name="message" rows="4" cols="50" placeholder="Enter message to encrypt..."></textarea><br>
-            <button type="submit">Encrypt Message</button>
-        </form>
+        <section>
+            <div class="section-header">Encrypt Message</div>
+            <form method="POST" action="/encrypt">
+                <textarea name="message" rows="4" cols="50" placeholder="Enter message to encrypt..."></textarea><br>
+                <button type="submit">Encrypt Message</button>
+            </form>
 
-        {% if encrypted_message %}
-        <div class="output">
-            <h3>Encrypted Message:</h3>
-            <p>{{ encrypted_message }}</p>
-            <h4>Key (Base64):</h4>
-            <p>{{ key }}</p>
-        </div>
-        {% endif %}
+            {% if encrypted_message %}
+            <div class="output">
+                <h3>Encrypted Message:</h3>
+                <p>{{ encrypted_message }}</p>
+                <h4>Key (Base64):</h4>
+                <p>{{ key }}</p>
+            </div>
+            {% endif %}
+        </section>
 
-        <h2>Decrypt Message</h2>
-        <form method="POST" action="/decrypt">
-            <textarea name="encrypted_message" rows="4" cols="50" placeholder="Enter encrypted message..."></textarea><br>
-            <input type="text" name="key" placeholder="Enter key (Base64)"><br>
-            <button type="submit">Decrypt Message</button>
-        </form>
+        <section>
+            <div class="section-header">Decrypt Message</div>
+            <form method="POST" action="/decrypt">
+                <textarea name="encrypted_message" rows="4" cols="50" placeholder="Enter encrypted message..."></textarea><br>
+                <input type="text" name="key" placeholder="Enter key (Base64)"><br>
+                <button type="submit">Decrypt Message</button>
+            </form>
 
-        {% if decrypted_message %}
-        <div class="output">
-            <h3>Decrypted Message:</h3>
-            <p>{{ decrypted_message }}</p>
-        </div>
-        {% endif %}
+            {% if decrypted_message %}
+            <div class="output">
+                <h3>Decrypted Message:</h3>
+                <p>{{ decrypted_message }}</p>
+            </div>
+            {% endif %}
+        </section>
 
-        <h2>Hide Message in Image</h2>
-        <form method="POST" action="/steg/hide" enctype="multipart/form-data">
-            <textarea name="steg_message" rows="4" cols="50" placeholder="Enter secret message to hide..."></textarea><br>
-            <input type="file" name="image" accept="image/*"><br>
-            <button type="submit">Hide Message</button>
-        </form>
+        <section>
+            <div class="section-header">Hide Message in Image</div>
+            <form method="POST" action="/steg/hide" enctype="multipart/form-data">
+                <textarea name="steg_message" rows="4" cols="50" placeholder="Enter secret message to hide..."></textarea><br>
+                <input type="file" name="image" accept="image/*"><br>
+                <button type="submit">Hide Message</button>
+            </form>
 
-        {% if steg_image %}
-        <div class="output">
-            <h3>Hidden Message Image:</h3>
-            <img src="{{ steg_image }}" alt="Hidden Image" width="300">
-        </div>
-        {% endif %}
+            {% if steg_image %}
+            <div class="output">
+                <h3>Hidden Message Image:</h3>
+                <img src="{{ steg_image }}" alt="Hidden Image" width="300">
+            </div>
+            {% endif %}
+        </section>
 
-        <h2>Reveal Message from Image</h2>
-        <form method="POST" action="/steg/reveal" enctype="multipart/form-data">
-            <input type="file" name="steg_image" accept="image/*"><br>
-            <button type="submit">Reveal Message</button>
-        </form>
+        <section>
+            <div class="section-header">Reveal Message from Image</div>
+            <form method="POST" action="/steg/reveal" enctype="multipart/form-data">
+                <input type="file" name="steg_image" accept="image/*"><br>
+                <button type="submit">Reveal Message</button>
+            </form>
 
-        {% if hidden_message %}
-        <div class="output">
-            <h3>Hidden Message:</h3>
-            <p>{{ hidden_message }}</p>
-        </div>
-        {% endif %}
+            {% if hidden_message %}
+            <div class="output">
+                <h3>Hidden Message:</h3>
+                <p>{{ hidden_message }}</p>
+            </div>
+            {% endif %}
+        </section>
     </div>
 </body>
 </html>
