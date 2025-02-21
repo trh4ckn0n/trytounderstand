@@ -66,9 +66,9 @@
         /* Hover and Focus Effects */
         input:focus, textarea:focus, button:hover {
             background-color: #444;
-            border-color: #00cc00;
+            border-color: #ff0000; /* Red on focus */
             transform: scale(1.05);
-            box-shadow: 0 0 25px rgba(0, 255, 0, 1);
+            box-shadow: 0 0 25px rgba(255, 0, 0, 1); /* Red border glow */
         }
 
         textarea {
@@ -87,14 +87,13 @@
         }
 
         button:active {
-            background-color: #00ff00;
+            background-color: #ff0000; /* Red on click */
         }
 
-        /* Hover and Focus for Buttons */
         button:hover {
-            background-color: #00ff00;
+            background-color: #ff3300;
             color: #222;
-            box-shadow: 0 0 20px rgba(0, 255, 0, 1);
+            box-shadow: 0 0 20px rgba(255, 0, 0, 1); /* Red border glow on hover */
         }
 
         /* Output Section */
@@ -127,8 +126,8 @@
             font-weight: bold;
             text-transform: uppercase;
             margin-bottom: 20px;
-            color: #00ff00;
-            text-shadow: 0 0 10px rgba(0, 255, 0, 0.7), 0 0 20px rgba(0, 255, 255, 0.5);
+            color: #ff0000; /* Red */
+            text-shadow: 0 0 10px rgba(255, 0, 0, 0.7), 0 0 20px rgba(255, 0, 255, 0.5);
         }
 
         /* Animations */
@@ -144,8 +143,8 @@
         /* Interactive Element on Hover */
         input[type="text"], textarea:focus, input:focus, button:focus {
             background-color: #444;
-            border-color: #00ff00;
-            box-shadow: 0 0 15px rgba(0, 255, 0, 1);
+            border-color: #ff0000;
+            box-shadow: 0 0 15px rgba(255, 0, 0, 1);
         }
 
         /* Box Shadow Pulse for Dynamic Elements */
@@ -155,18 +154,18 @@
         }
 
         button:active {
-            background-color: #00cc00;
+            background-color: #ff3300;
         }
 
         /* Red Text with Blue Border */
         .error-text {
             color: #ff0000;
-            border: 2px solid #0000ff;
+            border: 2px solid #0000ff; /* Blue border on red text */
         }
 
         .error-text:focus, .error-text:hover {
             border-color: #ff0000;
-            box-shadow: 0 0 15px rgba(255, 0, 0, 1);
+            box-shadow: 0 0 15px rgba(255, 0, 0, 1); /* Red border glow on hover/focus */
         }
 
         /* Ensure the page is scrollable */
