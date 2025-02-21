@@ -5,101 +5,155 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cryptography and Steganography</title>
     <style>
-        /* Global Styles */
-        body {
-            background-color: #1a1a1a;
-            color: #00ff00;
-            font-family: 'Arial', sans-serif;
-            margin: 0;
-            padding: 0;
-        }
-        h1, h2, h3, h4 {
-            color: #00ff00;
-        }
+/* Global */
+body {
+    background-color: #1a1a1a;
+    color: #00ff00;
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+}
 
-        /* Container */
-        .container {
-            width: 80%;
-            margin: 50px auto;
-            text-align: center;
-            padding: 20px;
-            background-color: #222;
-            border-radius: 10px;
-            box-shadow: 0 0 20px rgba(0, 255, 0, 0.5);
-        }
+/* Container */
+.container {
+    width: 80%;
+    max-width: 1000px;
+    margin: 50px auto;
+    padding: 40px;
+    background-color: #222;
+    border-radius: 15px;
+    box-shadow: 0 0 40px rgba(0, 255, 0, 0.6), 0 0 80px rgba(0, 255, 255, 0.5);
+    animation: pulse 5s infinite alternate;
+}
 
-        /* Form Elements */
-        input, textarea, button {
-            margin: 15px 0;
-            padding: 15px;
-            border: 2px solid #00ff00;
-            background-color: #333;
-            color: #00ff00;
-            font-size: 1rem;
-            border-radius: 5px;
-            transition: all 0.3s ease;
-        }
+/* Header Titles */
+h1, h2, h3, h4 {
+    color: #00ff00;
+    text-shadow: 0 0 10px rgba(0, 255, 0, 0.7), 0 0 20px rgba(0, 255, 255, 0.5);
+    font-family: 'Arial', sans-serif;
+}
 
-        input[type="file"] {
-            margin: 20px 0;
-        }
+/* Section Styling */
+section {
+    margin-bottom: 60px;
+}
 
-        input:focus, textarea:focus, button:hover {
-            background-color: #444;
-            border-color: #00cc00;
-            transform: scale(1.05);
-        }
+/* Form Elements */
+input, textarea, button {
+    margin: 15px 0;
+    padding: 15px;
+    border: 2px solid #00ff00;
+    background-color: #333;
+    color: #00ff00;
+    font-size: 1rem;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 15px rgba(0, 255, 0, 0.7);
+}
 
-        textarea {
-            width: 80%;
-            resize: none;
-        }
+input[type="file"] {
+    margin: 20px 0;
+}
 
-        button {
-            cursor: pointer;
-            font-weight: bold;
-            transition: background-color 0.3s ease;
-        }
+/* Hover and Focus Effects */
+input:focus, textarea:focus, button:hover {
+    background-color: #444;
+    border-color: #00cc00;
+    transform: scale(1.05);
+    box-shadow: 0 0 25px rgba(0, 255, 0, 1);
+}
 
-        button:active {
-            background-color: #00cc00;
-        }
+textarea {
+    width: 80%;
+    resize: none;
+}
 
-        /* Output Section */
-        .output {
-            margin-top: 20px;
-            padding: 10px;
-            background-color: #333;
-            border: 2px solid #00ff00;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
-        }
+button {
+    cursor: pointer;
+    font-weight: bold;
+    background-color: #00cc00;
+    border: none;
+    color: #222;
+    font-size: 1.2rem;
+    transition: background-color 0.3s ease;
+}
 
-        .output img {
-            border: 2px solid #00ff00;
-            margin-top: 10px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
-        }
+button:active {
+    background-color: #00ff00;
+}
 
-        /* Flexbox for Better Layout */
-        .output p, .output h3, .output h4 {
-            font-size: 1.2rem;
-        }
+/* Hover and Focus for Buttons */
+button:hover {
+    background-color: #00ff00;
+    color: #222;
+    box-shadow: 0 0 20px rgba(0, 255, 0, 1);
+}
 
-        /* Add some spacing between sections */
-        section {
-            margin-bottom: 40px;
-        }
+/* Output Section */
+.output {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #333;
+    border: 2px solid #00ff00;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 255, 0, 0.5);
+    transition: all 0.3s ease;
+}
 
-        /* Styling for individual sections */
-        .section-header {
-            font-size: 2rem;
-            font-weight: bold;
-            text-transform: uppercase;
-            margin-bottom: 20px;
-            color: #00ff00;
-        }
+.output:hover {
+    transform: scale(1.02);
+    box-shadow: 0 0 30px rgba(0, 255, 0, 0.8);
+}
+
+/* Image Output */
+.output img {
+    border: 2px solid #00ff00;
+    margin-top: 10px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 255, 0, 0.5);
+}
+
+/* Section Header Styling */
+.section-header {
+    font-size: 2rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    color: #00ff00;
+    text-shadow: 0 0 10px rgba(0, 255, 0, 0.7), 0 0 20px rgba(0, 255, 255, 0.5);
+}
+
+/* Animations */
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 40px rgba(0, 255, 0, 0.6), 0 0 80px rgba(0, 255, 255, 0.5);
+    }
+    100% {
+        box-shadow: 0 0 80px rgba(0, 255, 0, 0.8), 0 0 120px rgba(0, 255, 255, 0.7);
+    }
+}
+
+/* Interactive Element on Hover */
+input[type="text"], textarea:focus, input:focus, button:focus {
+    background-color: #444;
+    border-color: #00ff00;
+    box-shadow: 0 0 15px rgba(0, 255, 0, 1);
+}
+
+/* Box Shadow Pulse for Dynamic Elements */
+input, textarea, button {
+    box-shadow: 0 0 15px rgba(0, 255, 0, 0.5);
+    transition: all 0.3s ease-in-out;
+}
+
+button:active {
+    background-color: #00cc00;
+}
     </style>
 </head>
 <body>
