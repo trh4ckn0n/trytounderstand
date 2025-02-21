@@ -1,0 +1,178 @@
+        /* Global */
+        body {
+            background-color: #1a1a1a;
+            color: #00ff00;
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: auto; /* Allow scrolling */
+        }
+
+        /* Container */
+        .container {
+            width: 80%;
+            max-width: 1000px;
+            margin: 50px auto;
+            padding: 40px;
+            background-color: #222;
+            border-radius: 15px;
+            box-shadow: 0 0 40px rgba(0, 255, 0, 0.6), 0 0 80px rgba(0, 255, 255, 0.5);
+            animation: pulse 5s infinite alternate;
+            overflow-y: auto; /* Allow container to scroll */
+            max-height: 90vh; /* Ensure it doesn't overflow vertically */
+        }
+
+        /* Header Titles */
+        h1, h2, h3, h4 {
+            color: #00ff00;
+            text-shadow: 0 0 10px rgba(0, 255, 0, 0.7), 0 0 20px rgba(0, 255, 255, 0.5);
+            font-family: 'Arial', sans-serif;
+        }
+
+        /* Section Styling */
+        section {
+            margin-bottom: 60px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* Form Elements */
+        input, textarea, button {
+            margin: 15px 0;
+            padding: 15px;
+            border: 2px solid #00ff00;
+            background-color: #333;
+            color: #00ff00;
+            font-size: 1rem;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 15px rgba(0, 255, 0, 0.7);
+            width: 100%;
+        }
+
+        input[type="file"] {
+            margin: 20px 0;
+        }
+
+        /* Hover and Focus Effects */
+        input:focus, textarea:focus, button:hover {
+            background-color: #444;
+            border-color: #ff0000; /* Red on focus */
+            transform: scale(1.05);
+            box-shadow: 0 0 25px rgba(255, 0, 0, 1); /* Red border glow */
+        }
+
+        textarea {
+            resize: none;
+            width: 100%;
+        }
+
+        button {
+            cursor: pointer;
+            font-weight: bold;
+            background-color: #00cc00;
+            border: none;
+            color: #222;
+            font-size: 1.2rem;
+            transition: background-color 0.3s ease;
+        }
+
+        button:active {
+            background-color: #ff0000; /* Red on click */
+        }
+
+        button:hover {
+            background-color: #ff3300;
+            color: #222;
+            box-shadow: 0 0 20px rgba(255, 0, 0, 1); /* Red border glow on hover */
+        }
+
+        /* Output Section */
+        .output {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #333;
+            border: 2px solid #00ff00;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 255, 0, 0.5);
+            transition: all 0.3s ease;
+        }
+
+        .output:hover {
+            transform: scale(1.02);
+            box-shadow: 0 0 30px rgba(0, 255, 0, 0.8);
+        }
+
+        /* Image Output */
+        .output img {
+            border: 2px solid #00ff00;
+            margin-top: 10px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 255, 0, 0.5);
+        }
+
+        /* Section Header Styling */
+        .section-header {
+            font-size: 2rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            color: #ff0000; /* Red */
+            text-shadow: 0 0 10px rgba(255, 0, 0, 0.7), 0 0 20px rgba(255, 0, 255, 0.5);
+        }
+
+        /* Animations */
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 40px rgba(0, 255, 0, 0.6), 0 0 80px rgba(0, 255, 255, 0.5);
+            }
+            100% {
+                box-shadow: 0 0 80px rgba(0, 255, 0, 0.8), 0 0 120px rgba(0, 255, 255, 0.7);
+            }
+        }
+
+        /* Interactive Element on Hover */
+        input[type="text"], textarea:focus, input:focus, button:focus {
+            background-color: #444;
+            border-color: #ff0000;
+            box-shadow: 0 0 15px rgba(255, 0, 0, 1);
+        }
+
+        /* Box Shadow Pulse for Dynamic Elements */
+        input, textarea, button {
+            box-shadow: 0 0 15px rgba(0, 255, 0, 0.5);
+            transition: all 0.3s ease-in-out;
+        }
+
+        button:active {
+            background-color: #ff3300;
+        }
+
+        /* Red Text with Blue Border */
+        .error-text {
+            color: #ff0000;
+            border: 2px solid #0000ff; /* Blue border on red text */
+        }
+
+        .error-text:focus, .error-text:hover {
+            border-color: #ff0000;
+            box-shadow: 0 0 15px rgba(255, 0, 0, 1); /* Red border glow on hover/focus */
+        }
+
+        /* Ensure the page is scrollable */
+        html, body {
+            height: 100%;
+            overflow: auto;
+        }
+
+        /* Image Styling */
+        .feature-logo {
+            width: 50px;
+            height: 50px;
+            margin-right: 15px;
+        }
