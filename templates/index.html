@@ -43,6 +43,9 @@
         /* Section Styling */
         section {
             margin-bottom: 60px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
         /* Form Elements */
@@ -173,14 +176,27 @@
             height: 100%;
             overflow: auto;
         }
+
+        /* Image Styling */
+        .feature-logo {
+            width: 50px;
+            height: 50px;
+            margin-right: 15px;
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <h1>Cryptography and Steganography</h1>
+            <div>
+                <img src="logo.png" alt="Encrypt Icon" class="feature-logo">
+            </div>
 
         <section>
             <div class="section-header">Encrypt Message</div>
+            <div>
+                <img src="lock.png" alt="Encrypt Icon" class="feature-logo">
+            </div>
             <form method="POST" action="/encrypt">
                 <textarea name="message" rows="4" cols="50" placeholder="Enter message to encrypt..."></textarea><br>
                 <button type="submit">Encrypt Message</button>
@@ -198,6 +214,9 @@
 
         <section>
             <div class="section-header">Decrypt Message</div>
+            <div>
+                <img src="key.png" alt="Decrypt Icon" class="feature-logo">
+            </div>
             <form method="POST" action="/decrypt">
                 <textarea name="encrypted_message" rows="4" cols="50" placeholder="Enter encrypted message..."></textarea><br>
                 <input type="text" name="key" placeholder="Enter key (Base64)" class="error-text"><br>
@@ -214,27 +233,15 @@
 
         <section>
             <div class="section-header">Hide Message in Image</div>
+            <div>
+                <img src="eye.png" alt="Steganography Icon" class="feature-logo">
+            </div>
             <form method="POST" action="/steg/hide" enctype="multipart/form-data">
                 <textarea name="steg_message" rows="4" cols="50" placeholder="Enter secret message to hide..."></textarea><br>
                 <input type="file" name="image" accept="image/*"><br>
                 <button type="submit">Hide Message</button>
             </form>
-
-            {% if steg_image %}
-            <div class="output">
-                <h3>Hidden Message Image:</h3>
-                <img src="{{ steg_image }}" alt="Hidden Image" width="300">
-            </div>
-            {% endif %}
-        </section>
-
-        <section>
-            <div class="section-header">Reveal Message from Image</div>
-            <form method="POST" action="/steg/reveal" enctype="multipart/form-data">
-                <input type="file" name="steg_image" accept="image/*"><br>
-                <button type="submit">Reveal Message</button>
-            </form>
-
+            
             {% if hidden_message %}
             <div class="output">
                 <h3>Hidden Message:</h3>
